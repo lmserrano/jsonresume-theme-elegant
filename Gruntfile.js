@@ -55,13 +55,24 @@ module.exports = function(grunt) {
             }
         },
         embedFonts: {
-            all: {
+            // all: {
+            //     files: {
+            //         //'dist/css/style.css': ['src/css/style.css']
+            //         'build/assets/css/theme.css': ['assets/css/theme.css']
+            //         //'dist/css/style.css': ['src/css/style.css']
+            //     }
+            // }
+
+            old: {
+                options: {
+                    fontMimeType: true
+                    //xFontMimeType: true
+                },
                 files: {
-                    //'dist/css/style.css': ['src/css/style.css']
                     'build/assets/css/theme.css': ['assets/css/theme.css']
-                    //'dist/css/style.css': ['src/css/style.css']
                 }
             }
+
         }
     });
 
