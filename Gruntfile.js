@@ -55,21 +55,12 @@ module.exports = function(grunt) {
             }
         },
         embedFonts: {
-            // all: {
-            //     files: {
-            //         //'dist/css/style.css': ['src/css/style.css']
-            //         'build/assets/css/theme.css': ['assets/css/theme.css']
-            //         //'dist/css/style.css': ['src/css/style.css']
-            //     }
-            // }
-
             old: {
                 options: {
                     fontMimeType: true
-                    //xFontMimeType: true
                 },
                 files: {
-                    'build/assets/css/theme.css': ['assets/css/theme.css']
+                    'assets/css/theme.css': ['assets/css/theme.css'] // We overwrite it with embedded fonts
                 }
             }
 
