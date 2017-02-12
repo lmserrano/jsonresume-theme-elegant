@@ -59,7 +59,7 @@ function getFloatingNavItems(resume) {
 function render(resume) {
     var addressValues;
     var addressAttrs = ['address', 'city', 'region', 'countryCode', 'postalCode'];
-    var css = fs.readFileSync(__dirname + '/assets/css/theme.css', 'utf-8');
+    var css = fs.readFileSync(__dirname + '/build/assets/css/theme.css', 'utf-8');
 
     resume.basics.picture = utils.getUrlForPicture(resume);
 
