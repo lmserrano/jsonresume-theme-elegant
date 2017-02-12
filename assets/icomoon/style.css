@@ -1,15 +1,12 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?f218wo');
-  src:  url('fonts/icomoon.eot?f218wo#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?f218wo') format('truetype'),
-    url('fonts/icomoon.woff?f218wo') format('woff'),
-    url('fonts/icomoon.svg?f218wo#icomoon') format('svg');
+  src: url('../icomoon/fonts/icomoon.eot?f218wo');
+  src: url('../icomoon/fonts/icomoon.eot?f218wo#iefix') format('embedded-opentype'), url('../icomoon/fonts/icomoon.ttf') format('truetype'), url('../icomoon/fonts/icomoon.woff') format('woff'), url('../icomoon/fonts/icomoon.svg?f218wo#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -18,12 +15,10 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .icon-telegram:before {
   content: "\e904";
 }
@@ -137,17 +132,17 @@
 }
 .icon-meetup .path1:before {
   content: "\e901";
-  color: rgb(255, 255, 255);
+  color: #ffffff;
 }
 .icon-meetup .path2:before {
   content: "\e902";
   margin-left: -1.5em;
-  color: rgb(240, 1, 1);
+  color: #f00101;
 }
 .icon-meetup .path3:before {
   content: "\e903";
   margin-left: -1.5em;
-  color: rgb(3, 3, 3);
+  color: #030303;
 }
 .icon-blogger:before {
   content: "\e900";
@@ -293,4 +288,3 @@
 .icon-board:before {
   content: "\e608";
 }
-
