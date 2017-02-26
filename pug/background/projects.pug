@@ -1,0 +1,67 @@
+unless _.isEmpty(resume.projects)
+
+  .detail#projects
+    .icon
+      i.fs-lg.icon-office
+      span.mobile-title Projects
+
+    .info
+      h4.title.text-uppercase Projects&nbsp;&nbsp;&nbsp;
+
+        button.btn.btn-default.btn-sm.btn-circle-sm.js-projects-collapse(
+        data-toggle="collapse",
+        data-target="#projects-list")
+          i.icon-chevron-down.fs-lg
+
+      #projects-list.ul.list-unstyled.clear-margin.collapse
+        each experience in resume.projects
+          li.card.card-nested.clearfix
+            .content
+              p.clear-margin.relative
+                if !experience.endDate
+                  i.icon-circle.current-event(
+                  rel="tooltip",
+                  title="Currently Working",
+                  data-placement="left"
+                  )
+                strong= experience.name
+                | ,&nbsp;
+                if experience.website
+                  a(href=experience.website, target="_blank")= experience.company
+                else
+                  | #{experience.company}
+
+              p.text-muted
+                small
+                  span.space-right
+                    | #{experience.startDate} - #{experience.endDate || 'Present'}
+
+                  if experience.duration
+                    span
+                      i.icon-clock.mr-5
+                      | #{experience.duration}
+
+              .mop-wrapper.space-bottom!= experience.description
+
+              .space-top
+                | Responsabilities:
+              .space-top
+              .mop-wrapper.space-bottom!= experience.responsabilities
+
+              unless _.isEmpty(experience.technologies)
+                | Technologies:
+                .space-top.labels
+                  each technology in experience.technologies
+                    span.label.label-keyword= technology
+                .space-top
+
+              unless _.isEmpty(experience.moreTechnologies)
+                | Other technologies:
+                .space-top.labels
+                  each technology in experience.moreTechnologies
+                    span.label.label-keyword= technology
+
+              //unless _.isEmpty(experience.highlights)
+              //    ul
+              //        each highlight in experience.highlights
+              //            li.mop-wrapper!= highlight

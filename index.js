@@ -42,11 +42,13 @@ function getFloatingNavItems(resume) {
         {label: 'Work Experience', target: 'work-experience', icon: 'office', requires: 'work'},
         {label: 'Skills', target: 'skills', icon: 'tools', requires: 'skills'},
         {label: 'Education', target: 'education', icon: 'graduation-cap', requires: 'education'},
+        {label: 'Certifications', target: 'certifications', icon: 'profile', requires: 'certifications'},
         {label: 'Awards', target: 'awards', icon: 'trophy', requires: 'awards'},
         {label: 'Volunteer Work', target: 'volunteer-work', icon: 'child', requires: 'volunteer'},
         {label: 'Publications', target: 'publications', icon: 'newspaper', requires: 'publications'},
         {label: 'Interests', target: 'interests', icon: 'heart', requires: 'interests'},
-        {label: 'References', target: 'references', icon: 'thumbs-up', requires: 'references'}
+        {label: 'References', target: 'references', icon: 'thumbs-up', requires: 'references'},
+        {label: 'Projects', target: 'projects', icon: 'office', requires: 'projects'}
     ];
 
     return _(floating_nav_items).filter(function(item) {
@@ -85,12 +87,18 @@ function render(resume) {
     resume.basics.top_five_profiles = resume.basics.profiles.slice(0, 5);
     resume.basics.remaining_profiles = resume.basics.profiles.slice(5);
 
+    var minStartDate = null;
+
     _.each(resume.work, function(work_info) {
         var end_date;
         var start_date = moment(work_info.startDate, "YYYY-MM-DD");
         var did_leave_company = !!work_info.endDate;
 
         work_info.summary = convertMarkdown(work_info.summary);
+
+        if(minStartDate == null || work_info.startDate < minStartDate ) {
+            minStartDate = work_info.startDate;
+        }
 
         if (work_info.endDate) {
             end_date = moment(work_info.endDate, "YYYY-MM-DD");
@@ -108,6 +116,8 @@ function render(resume) {
             return convertMarkdown(highlight);
         });
     });
+
+    resume.work.duration = moment.preciseDiff(minStartDate, moment());
 
     _.each(resume.skills, function(skill_info) {
         var levels = ['Beginner', 'Intermediate', 'Advanced', 'Master'];
@@ -167,6 +177,26 @@ function render(resume) {
 
     _.each(resume.references, function(reference_info) {
         reference_info.reference = convertMarkdown(reference_info.reference);
+    });
+
+    _.each(resume.projects, function(project_info) {
+        var end_date;
+        var start_date = moment(project_info.startDate, "YYYY-MM-DD");
+        var did_finish_project = !!project_info.endDate;
+
+        project_info.summary = convertMarkdown(project_info.summary);
+
+        if (project_info.endDate) {
+            end_date = moment(project_info.endDate, "YYYY-MM-DD");
+            project_info.endDate = utils.getFormattedDate(end_date);
+        }
+
+        if (start_date) {
+            end_date = end_date ? moment(end_date) : moment();
+            project_info.startDate = utils.getFormattedDate(start_date);
+
+            project_info.duration = moment.preciseDiff(start_date, end_date);
+        }
     });
 
     return pug.renderFile(__dirname + '/index.pug', {
