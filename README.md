@@ -1,8 +1,33 @@
-# Elegant Theme [![npm version](https://badge.fury.io/js/jsonresume-theme-elegant.svg)](http://badge.fury.io/js/jsonresume-theme-elegant)
+# Elegant Theme - Improved
 
 Responsive theme for [JsonResume](https://jsonresume.org/) inspired by card layouts.
 
-[Theme Preview](http://themes.jsonresume.org/elegant)
+Original [Theme Preview](http://themes.jsonresume.org/elegant)
+
+Original [Theme Repository](https://github.com/mudassir0909/jsonresume-theme-elegant)
+
+### Improved Version
+
+The version from this repository has some improvements of two types:
+- Generic changes/improvements (backwards compatible with the official JSON Resume repos and the original theme)
+- Specific (such as new supported JSON fields and formats and their template representations), but from which anyone can benefit by checking the related forks and repositories:
+  - [resume-schema fork](https://github.com/lmserrano/resume-schema)
+
+Also, one of the goals of this repository is that all the information is put into the same single file, so that it can be properly exported and used in a normal offline CV file, if desired
+
+This offline export can be achieved using [resume-builder](https://github.com/lmserrano/resume-builder)
+
+The list of added features is as follows:
+- Added total working time
+- Added tags to profile
+- Added `certificates` section
+- Added `projects` section
+- Make `projects` section collapsible
+- Add scrolling capabilities to floating nav bar
+- Added `other_skills` section
+- Fonts are now embedded as base 64 into the template exported/rendered html files
+
+For additional information, please check the "release-notes.md" file
 
 ### Markdown Supported
 Only in the following places of now `resume.basics.summary`, `work[0].summary`, `work[0].highlights`, `education[0].courses`, `volunteer[0].summary`, `volunteer[0].highlights`, `awards[0].summary`, `publications[0].summary`, `references[0].reference`. If you have any other usecase, please raise an issue

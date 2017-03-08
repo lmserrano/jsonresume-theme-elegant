@@ -53,6 +53,17 @@ module.exports = function(grunt) {
             build: {
                 src: [ 'build' ]
             }
+        },
+        embedFonts: {
+            old: {
+                options: {
+                    fontMimeType: true
+                },
+                files: {
+                    'assets/css/theme.css': ['assets/css/theme.css'] // We overwrite it with embedded fonts
+                }
+            }
+
         }
     });
 
@@ -71,6 +82,9 @@ module.exports = function(grunt) {
     // Load the plugin to copy files
     grunt.loadNpmTasks('grunt-contrib-copy');
 
+    // Load the plugin to embed fonts
+    grunt.loadNpmTasks('grunt-embed-fonts');
+
     // Default tasks
     grunt.registerTask('default', ['exec']);
     grunt.registerTask('build', [
@@ -81,6 +95,7 @@ module.exports = function(grunt) {
         'clean',
         'copy:build',
         'less',
+        'embedFonts',
         'exec:build_index' //,
         /* Uncomment this item (and the comma above) if you add a favicon.ico
            in the project root. You'll also need to uncomment the <link...> tag

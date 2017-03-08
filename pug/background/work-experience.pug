@@ -7,6 +7,11 @@ unless _.isEmpty(resume.work)
     .info
       h4.title.text-uppercase Work Experience
 
+      if resume.work.duration
+        span
+          i.icon-clock.mr-5
+          | #{resume.work.duration}
+
       ul.list-unstyled.clear-margin
         each experience in resume.work
           li.card.card-nested.clearfix
