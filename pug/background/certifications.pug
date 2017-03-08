@@ -1,0 +1,81 @@
+//mixin render_links(profiles)
+//    each profile in profiles
+//        a.fs-2x.social-link(
+//        href=profile.url,
+//        target="_blank",
+//        data-toggle="tooltip",
+//        title= resume.basics.name + " on " + profile.network,
+//        class="link-" + profile.label + " icon-" + profile.label)
+//            if profile.network.toLowerCase() == 'meetup'
+//                span.path2
+//                span.path3
+
+unless _.isEmpty(resume.certifications)
+    .detail#certifications
+        .icon
+            i.fs-lg.icon-profile
+            span.mobile-title Certifications
+
+        .info
+            h4.title.text-uppercase Certifications
+
+            .content
+                ul.list-unstyled.clear-margin
+                    each certification_info in resume.certifications
+                        li.card.card-nested
+                            .content
+                                p.clear-margin.relative
+                                    strong
+                                        |#{certification_info.name},&nbsp;
+                                    |#{certification_info.institution}
+                                    if certification_info.author
+                                        | &nbsp;( by&nbsp;
+                                        if certification_info.author.website
+                                            a(href=certification_info.author.website, target="_blank")= certification_info.author.name
+                                        else
+                                            |#{certification_info.author.name}
+                                        | )
+
+
+                                //p.text-muted
+                                //    small
+                                //        span.space-right
+                                //            | #{certification_info.startDate} - #{certification_info.endDate || 'Present'}
+
+                                p.text-muted
+                                    small
+                                        | Obtained on: #{certification_info.date}
+
+                                //p.text-muted
+                                //    small
+                                //        | Author: #{certification_info.author.name}
+
+                                .mop-wrapper.space-bottom!= certification_info.description
+
+                                if certification_info.website
+                                    p.text-muted
+                                        small
+                                            a(href=certification_info.website, target="_blank")= "Click here to see certificate"
+
+                                // TODO Change this to a collapsable something
+                                //div
+                                //    +render_links(resume.basics.top_five_profiles)
+                                //
+                                //    if resume.basics.remaining_profiles.length > 0
+                                //        button.btn.btn-default.btn-sm.btn-circle-sm.pull-right.js-profiles-collapse(
+                                //        data-toggle="collapse",
+                                //        data-target="#remaining-profiles")
+                                //            i.icon-chevron-down.fs-lg
+                                //
+                                //        #remaining-profiles.collapse.text-left
+                                //            +render_links(resume.basics.remaining_profiles)
+
+                                //p.text-muted(class=!education_info.gpa && _.isEmpty(education_info.courses) ? 'clear-margin' : '')
+                                //    small
+                                //        |#{education_info.startDate} - #{education_info.endDate || 'Present'}
+                                //i= education_info.gpa
+                                //
+                                //unless _.isEmpty(education_info.courses)
+                                //    .space-top.labels
+                                //        each course in education_info.courses
+                                //            span.label.label-keyword= course

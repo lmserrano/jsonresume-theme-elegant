@@ -8,3 +8,8 @@ unless _.isEmpty(resume.basics.summary)
 
       .card.card-nested
         .content.mop-wrapper(itemprop="description")!= resume.basics.summary
+
+        unless _.isEmpty(resume.basics.tags)
+          .space-top.labels
+            each tag in resume.basics.tags
+              span.label.label-keyword= tag

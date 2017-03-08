@@ -1,0 +1,29 @@
+unless _.isEmpty(resume.other_skills)
+  .detail#other-skills
+    .icon
+      i.fs-lg.icon-tools
+      span.mobile-title Other Skills
+
+    .info
+      h4.title.text-uppercase Other Skills&nbsp;&nbsp;
+
+        button.btn.btn-default.btn-sm.btn-circle-sm.js-other-skills-collapse(
+        data-toggle="collapse",
+        data-target="#other-skills-list")
+          i.icon-chevron-down.fs-lg
+
+      #other-skills-list.ul.list-unstyled.clear-margin.collapse
+        each skill in resume.other_skills
+          li.card.card-nested.card-skills
+            .content
+              if skill.display_progress_bar
+                .skill-level(data-toggle="tooltip", title=skill.level, data-placement="left")
+                  .skill-progress(class=skill.skill_class)
+
+              .skill-info
+                strong= skill.name
+
+                unless _.isEmpty(skill.keywords)
+                  .space-top.labels
+                    each keyword in skill.keywords
+                      span.label.label-keyword= keyword

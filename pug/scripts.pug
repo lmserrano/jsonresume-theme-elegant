@@ -16,6 +16,11 @@ script.
     });
     $( '.js-floating-nav a' ).on( 'click', toggleFloatingMenu );
 
+    $( ".floating-nav" ).css( "max-height", (window.innerHeight - 40) + "px" );
+    $(".floating-nav").css("overflow", "hidden");
+    $(".floating-nav").css("overflow-y", "scroll");
+
+
     $("#remaining-profiles").on('show.bs.collapse', function() {
       $( '.js-profiles-collapse > i' )
         .removeClass( 'icon-chevron-down' )
@@ -27,6 +32,30 @@ script.
         .removeClass( 'icon-chevron-up' )
         .addClass( 'icon-chevron-down' );
     });
+
+    $("#other-skills").on('show.bs.collapse', function () {
+        $('.js-other-skills-collapse > i')
+            .removeClass('icon-chevron-down')
+            .addClass('icon-chevron-up');
+    });
+
+    $("#other-skills").on('hidden.bs.collapse', function () {
+        $('.js-other-skills-collapse > i')
+            .removeClass('icon-chevron-up')
+            .addClass('icon-chevron-down');
+    });
+
+    $("#projects").on('show.bs.collapse', function () {
+      $('.js-projects-collapse > i')
+        .removeClass('icon-chevron-down')
+        .addClass('icon-chevron-up');
+      });
+
+    $("#projects").on('hidden.bs.collapse', function () {
+      $('.js-projects-collapse > i')
+        .removeClass('icon-chevron-up')
+        .addClass('icon-chevron-down');
+      });
   });
 
 script.
