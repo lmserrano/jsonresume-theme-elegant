@@ -4,9 +4,9 @@
 
 ### In the roadmap
 
-- Added `more` sub-section to `skills` section
+- Nothing currently in the roadmap
 
-### For next version
+### v.1.9.1.2
 
 - Added total working time
 - Added tags to profile
@@ -14,6 +14,7 @@
 - Added `projects` section
 - Make `projects` section collapsible
 - Add scrolling capabilities to floating nav bar
+- Added `other_skills` section
 
 ### v.1.9.1.1
 

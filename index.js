@@ -41,6 +41,7 @@ function getFloatingNavItems(resume) {
         {label: 'About', target: 'about', icon: 'board', requires: 'basics.summary'},
         {label: 'Work Experience', target: 'work-experience', icon: 'office', requires: 'work'},
         {label: 'Skills', target: 'skills', icon: 'tools', requires: 'skills'},
+        {label: 'Other Skills', target: 'other-skills', icon: 'tools', requires: 'other_skills'},
         {label: 'Education', target: 'education', icon: 'graduation-cap', requires: 'education'},
         {label: 'Certifications', target: 'certifications', icon: 'profile', requires: 'certifications'},
         {label: 'Awards', target: 'awards', icon: 'trophy', requires: 'awards'},
@@ -120,6 +121,16 @@ function render(resume) {
     resume.work.duration = moment.preciseDiff(minStartDate, moment());
 
     _.each(resume.skills, function(skill_info) {
+        var levels = ['Beginner', 'Intermediate', 'Advanced', 'Master'];
+
+        if (skill_info.level) {
+            skill_info.skill_class = skill_info.level.toLowerCase();
+            skill_info.level = capitalize(skill_info.level.trim());
+            skill_info.display_progress_bar = _.contains(levels, skill_info.level);
+        }
+    });
+
+    _.each(resume.other_skills, function(skill_info) {
         var levels = ['Beginner', 'Intermediate', 'Advanced', 'Master'];
 
         if (skill_info.level) {

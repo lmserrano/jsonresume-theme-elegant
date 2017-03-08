@@ -21,7 +21,7 @@ script.
     $(".floating-nav").css("overflow-y", "scroll");
 
 
-      $("#remaining-profiles").on('show.bs.collapse', function() {
+    $("#remaining-profiles").on('show.bs.collapse', function() {
       $( '.js-profiles-collapse > i' )
         .removeClass( 'icon-chevron-down' )
         .addClass( 'icon-chevron-up' );
@@ -31,6 +31,18 @@ script.
       $( '.js-profiles-collapse > i' )
         .removeClass( 'icon-chevron-up' )
         .addClass( 'icon-chevron-down' );
+    });
+
+    $("#other-skills").on('show.bs.collapse', function () {
+        $('.js-other-skills-collapse > i')
+            .removeClass('icon-chevron-down')
+            .addClass('icon-chevron-up');
+    });
+
+    $("#other-skills").on('hidden.bs.collapse', function () {
+        $('.js-other-skills-collapse > i')
+            .removeClass('icon-chevron-up')
+            .addClass('icon-chevron-down');
     });
 
     $("#projects").on('show.bs.collapse', function () {
