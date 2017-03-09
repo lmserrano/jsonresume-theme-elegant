@@ -6,6 +6,11 @@
 
 - Nothing currently in the roadmap
 
+### v.1.9.1.3
+
+- Improved support for `projects` fields
+- New types of labels for roles and keywords. Updated "about" profile section to use role labels
+
 ### v.1.9.1.2
 
 - Added total working time
