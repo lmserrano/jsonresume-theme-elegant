@@ -328,6 +328,30 @@
 .label-keyword:last-child {
   margin-right: 0;
 }
+.label-role {
+  display: inline-block;
+  background: #4cae4c;
+  color: white;
+  font-size: 0.9em;
+  padding: 5px;
+  border: 1px solid #2d672d;
+  margin-right: 5px;
+}
+.label-role:last-child {
+  margin-right: 0;
+}
+.label-business {
+  display: inline-block;
+  background: #dab10d;
+  color: white;
+  font-size: 0.9em;
+  padding: 5px;
+  border: 1px solid #796307;
+  margin-right: 5px;
+}
+.label-business:last-child {
+  margin-right: 0;
+}
 .link-disguise {
   color: inherit;
 }

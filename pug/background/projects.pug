@@ -20,48 +20,68 @@ unless _.isEmpty(resume.projects)
               p.clear-margin.relative
                 if !experience.endDate
                   i.icon-circle.current-event(
-                  rel="tooltip",
-                  title="Currently Working",
-                  data-placement="left"
+                    rel="tooltip",
+                    title="Currently Working",
+                    data-placement="left"
                   )
                 strong= experience.name
-                | ,&nbsp;
+                |,&nbsp;
                 if experience.website
-                  a(href=experience.website, target="_blank")= experience.company
+                  a(href=experience.website, target="_blank")= experience.entity
                 else
-                  | #{experience.company}
+                  |#{experience.entity}
 
-              p.text-muted
+              p.clear-margin.text-muted
                 small
                   span.space-right
-                    | #{experience.startDate} - #{experience.endDate || 'Present'}
+                    |#{experience.startDate} - #{experience.endDate || 'Present'}
 
                   if experience.duration
                     span
                       i.icon-clock.mr-5
-                      | #{experience.duration}
+                      |#{experience.duration}
+
+                unless _.isEmpty(experience.type)
+                  small
+                    p.space-right.text-muted
+                      |#{experience.type}
+
+              unless _.isEmpty(experience.roles)
+                .labels
+                  each role in experience.roles
+                    span.label.label-role= role
+                .space-top
 
               .mop-wrapper.space-bottom!= experience.description
 
-              .space-top
-                | Responsabilities:
-              .space-top
-              .mop-wrapper.space-bottom!= experience.responsabilities
+              unless _.isEmpty(experience.highlights)
+                ul
+                  each highlight in experience.highlights
+                    li.mop-wrapper!= highlight
+
+              unless _.isEmpty(experience.responsabilities)
+                .space-top
+                  |Responsabilities:
+                .clear-margin
+                .mop-wrapper.space-bottom!= experience.responsabilities
 
               unless _.isEmpty(experience.technologies)
-                | Technologies:
-                .space-top.labels
+                |Technologies:
+                .labels
                   each technology in experience.technologies
                     span.label.label-keyword= technology
                 .space-top
 
-              unless _.isEmpty(experience.moreTechnologies)
-                | Other technologies:
-                .space-top.labels
-                  each technology in experience.moreTechnologies
-                    span.label.label-keyword= technology
+              //unless _.isEmpty(experience.moreTechnologies)
+              //  |Other technologies:
+              //  .labels
+              //    each technology in experience.moreTechnologies
+              //      span.label.label-keyword= technology
 
-              //unless _.isEmpty(experience.highlights)
-              //    ul
-              //        each highlight in experience.highlights
-              //            li.mop-wrapper!= highlight
+              unless _.isEmpty(experience.keywords)
+                |Keywords:
+                .labels
+                  each keyword in experience.keywords
+                    span.label.label-business= keyword
+                .space-top
+
