@@ -6,12 +6,16 @@
 
 - Nothing currently in the roadmap
 
-### v.1.9.1.3
+### v1.9.1.4
+
+- Added support for `meta` fields
+
+### v1.9.1.3
 
 - Improved support for `projects` fields
 - New types of labels for roles and keywords. Updated "about" profile section to use role labels
 
-### v.1.9.1.2
+### v1.9.1.2
 
 - Added total working time
 - Added tags to profile
@@ -21,6 +25,6 @@
 - Add scrolling capabilities to floating nav bar
 - Added `other_skills` section
 
-### v.1.9.1.1
+### v1.9.1.1
 
 - Fonts are now embedded as base 64 into the template exported/rendered html files
