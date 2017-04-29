@@ -40,7 +40,7 @@ section.col-md-3.card-wrapper.profile-card-wrapper.affix
             text-center
               |Version: #{resume.meta.version}
 
-          unless _.isEmpty(resume.meta.version) && _.isEmpty(resume.meta.lastModified)
+          unless _.isEmpty(resume.meta.version) || _.isEmpty(resume.meta.lastModified)
             text-center
               |&nbsp;&nbsp;-&nbsp;&nbsp;
 

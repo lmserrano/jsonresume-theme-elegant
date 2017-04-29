@@ -1,9 +1,13 @@
 unless _.isEmpty(resume.projects)
-
   .detail#projects
     .icon
       i.fs-lg.icon-office
-      span.mobile-title Projects
+      span.mobile-title Projects&nbsp;&nbsp;&nbsp;
+
+        button.btn.btn-default.btn-sm.btn-circle-sm.js-projects-collapse(
+        data-toggle="collapse",
+        data-target="#projects-list")
+          i.icon-chevron-down.fs-lg
 
     .info
       h4.title.text-uppercase Projects&nbsp;&nbsp;&nbsp;
@@ -59,11 +63,11 @@ unless _.isEmpty(resume.projects)
                   each highlight in experience.highlights
                     li.mop-wrapper!= highlight
 
-              unless _.isEmpty(experience.responsabilities)
+              unless _.isEmpty(experience.responsibilities)
                 .space-top
-                  |Responsabilities:
+                  |Responsibilities:
                 .clear-margin
-                .mop-wrapper.space-bottom!= experience.responsabilities
+                .mop-wrapper.space-bottom!= experience.responsibilities
 
               unless _.isEmpty(experience.technologies)
                 |Technologies:

@@ -6,6 +6,12 @@
 
 - Nothing currently in the roadmap
 
+### v1.9.1.5
+
+- Fixed expand collapsible buttons in `Other Skills` and `Projects`
+- Fixed `Projects` `responsabilities` field to be correctly named: `responsibilities`
+- The `-` between "Version" and the Last Updated Date in the profile card now only displays when both Version and Last Updated Date exist
+
 ### v1.9.1.4
 
 - Added support for `meta` fields
