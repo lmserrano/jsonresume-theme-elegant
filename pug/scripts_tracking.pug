@@ -1,0 +1,12 @@
+if ( !_.isEmpty(resume.meta) && !_.isEmpty(resume.meta.tracking) && !_.isEmpty(resume.meta.tracking.google_analytics_site_global_id))
+
+  script(async, src="https://www.googletagmanager.com/gtag/js?id=#{resume.meta.tracking.google_analytics_site_global_id}")
+  script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+          dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', '#{resume.meta.tracking.google_analytics_site_global_id}');
+
