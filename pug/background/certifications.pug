@@ -29,7 +29,7 @@ unless _.isEmpty(resume.certifications)
                                         |#{certification_info.name},&nbsp;
                                     |#{certification_info.institution}
                                     if certification_info.author
-                                        | &nbsp;( by&nbsp;
+                                        | &nbsp;(by&nbsp;
                                         if certification_info.author.website
                                             a(href=certification_info.author.website, target="_blank")= certification_info.author.name
                                         else

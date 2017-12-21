@@ -1,0 +1,47 @@
+if ( !_.isEmpty(resume.meta) && !_.isEmpty(resume.meta.tracking) && !_.isEmpty(resume.meta.tracking.google_analytics_site_global_id))
+
+  //-if( !_.isEmpty(resume.meta.tracking.google_analytics_offline_mode) && resume.meta.tracking.google_analytics_offline_mode) //- TODO The 2nd part of this condition isn't working as intended. The Google Analytics code is also not tracking offline usage
+  //-
+  //-  //- Use analytics.js for tracking with offline capabilities
+  //-  script.
+  //-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  //-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  //-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  //-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  //-
+  //-    //ga('create', 'UA-XXXXX-Y', 'auto');
+  //-    ga('create', '#{resume.meta.tracking.google_analytics_site_global_id}', {
+  //-      'storage': 'none',
+  //-      'clientId': localStorage.getItem('ga:clientId')
+  //-    });
+  //-    ga(function(tracker) {
+  //-      localStorage.setItem('ga:clientId', tracker.get('clientId'));
+  //-    });
+  //-    ga('set', 'checkProtocolTask', null); // Disable file protocol checking.
+  //-    //ga('set', 'checkStorageTask', null); // Disable cookie storage checking.
+  //-    //ga('set', 'historyImportTask', null); // Disable history checking (requires reading from cookies).
+  //-
+  //-    if( !_.isEmpty(resume.basics) && !_.isEmpty(resume.basics.name))
+  //-      ga('set', 'page', '#{resume.basics.name} CV Page File')
+  //-    else
+  //-      ga('set', 'page', 'myPage');
+  //-
+  //-    ga('send', 'pageview');
+  //-
+  //-else
+
+  //- Use GTAG for tracking online-only with all the latest features
+  script(async, src="https://www.googletagmanager.com/gtag/js?id=" + resume.meta.tracking.google_analytics_site_global_id)
+  script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+          dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', '#{resume.meta.tracking.google_analytics_site_global_id}');
+
+
+
+
+

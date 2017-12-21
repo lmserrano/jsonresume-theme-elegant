@@ -26,6 +26,7 @@ The list of added features is as follows:
 - Add scrolling capabilities to floating nav bar
 - Added `other_skills` section
 - Fonts are now embedded as base 64 into the template exported/rendered html files
+- Added support for Google Analytics
 
 For additional information, please check the "release-notes.md" file
 
